@@ -20,4 +20,13 @@
         select * from employees where job_id = #{body}
     </select>
 
+    <select id="selectMaxSalByJobIdProc" statementType="CALLABLE">
+         {call get_max_sal_job_id(#{inParam1, jdbcType = VARCHAR , mode = IN}, #{outParam1, jdbcType = INTEGER , mode = OUT})}
+    </select>
+
+    <select id="selectEmpListByJobIdProc" statementType="CALLABLE">
+        {call get_emp_by_job_id(#{inParam1, jdbcType = VARCHAR , mode = IN},
+             #{employees, jdbcType = CURSOR, javaType=java.sql.ResultSet , mode = OUT, resultMap=EmpResult})}
+    </select>
+
 </mapper>

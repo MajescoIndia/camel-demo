@@ -1,6 +1,9 @@
 package com.example.routes;
 
 import com.example.model.Employee;
+import com.example.model.ProcModel;
+import org.apache.camel.Exchange;
+import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +23,17 @@ public class MybatisDemoRoute extends RouteBuilder {
                 .convertBodyTo(String.class)
                 .to("mybatis:selectEmployeeByJobId?statementType=SelectList")
                 .convertBodyTo(List.class);
+
+        from("direct:mybatisDemoMaxSalProc")
+                .convertBodyTo(ProcModel.class)
+                //.to("mybatis:selectMaxSalByJobIdProc?statementType=SelectOne")
+                .to("mybatis:selectEmpListByJobIdProc?statementType=SelectOne")
+                .process(new Processor() {
+                    @Override
+                    public void process(Exchange exchange) throws Exception {
+                        System.out.println();
+                    }
+                });
 
     }
 }
