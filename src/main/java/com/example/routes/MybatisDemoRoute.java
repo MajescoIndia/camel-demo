@@ -26,8 +26,8 @@ public class MybatisDemoRoute extends RouteBuilder {
 
         from("direct:mybatisDemoMaxSalProc")
                 .convertBodyTo(ProcModel.class)
-                //.to("mybatis:selectMaxSalByJobIdProc?statementType=SelectOne")
-                .to("mybatis:selectEmpListByJobIdProc?statementType=SelectOne")
+                .to("mybatis:selectMaxSalByJobIdProc?statementType=SelectOne")
+                //.to("mybatis:selectEmpListByJobIdProc?statementType=SelectOne")
                 .process(new Processor() {
                     @Override
                     public void process(Exchange exchange) throws Exception {

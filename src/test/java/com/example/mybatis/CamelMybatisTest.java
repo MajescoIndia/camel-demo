@@ -2,6 +2,7 @@ package com.example.mybatis;
 
 import com.example.AbstractAppInitializer;
 import com.example.model.Employee;
+import com.example.model.Params;
 import com.example.model.ProcModel;
 import com.example.proxy.MybatisDemoProcProxy;
 import com.example.proxy.MybatisDemoProxy;
@@ -29,10 +30,19 @@ public class CamelMybatisTest extends AbstractAppInitializer{
     }
 
     @Test
-    public void testMaxEmpId() {
+    public void testCorsurList() {
         ProcModel req = new ProcModel();
         req.setInParam1("IT_PROG");
         mybatisDemoProcProxy.getMaxSalary(req);
     }
 
+    @Test
+    public void testMaxEmpId() {
+        ProcModel req = new ProcModel();
+        Params params = new Params();
+        params.setParam1("IT_PROG");
+        req.setInParams(params);
+        //req.setInParam1("IT_PROG");
+        mybatisDemoProcProxy.getMaxSalary(req);
+    }
 }

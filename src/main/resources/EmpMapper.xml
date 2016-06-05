@@ -21,7 +21,7 @@
     </select>
 
     <select id="selectMaxSalByJobIdProc" statementType="CALLABLE">
-         {call get_max_sal_job_id(#{inParam1, jdbcType = VARCHAR , mode = IN}, #{outParam1, jdbcType = INTEGER , mode = OUT})}
+         {call get_max_sal_job_id(#{inParams.param1, jdbcType = VARCHAR , mode = IN}, #{outParams.param2, jdbcType = INTEGER , mode = OUT})}
     </select>
 
     <select id="selectEmpListByJobIdProc" statementType="CALLABLE">

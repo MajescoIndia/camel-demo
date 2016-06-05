@@ -13,6 +13,24 @@ public class ProcModel {
     private String outParam2;
     private String inOutParam1;
     private List<Employee> employees;
+    private Params inParams;
+    private Params outParams;
+
+    public Params getInParams() {
+        return inParams;
+    }
+
+    public void setInParams(Params inParams) {
+        this.inParams = inParams;
+    }
+
+    public Params getOutParams() {
+        return outParams;
+    }
+
+    public void setOutParams(Params outParams) {
+        this.outParams = outParams;
+    }
 
     public List<Employee> getEmployees() {
         return employees;
