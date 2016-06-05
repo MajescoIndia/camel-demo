@@ -25,8 +25,9 @@
     </select>
 
     <select id="selectEmpListByJobIdProc" statementType="CALLABLE">
-        {call get_emp_by_job_id(#{inParam1, jdbcType = VARCHAR , mode = IN},
-             #{employees, jdbcType = CURSOR, javaType=java.sql.ResultSet , mode = OUT, resultMap=EmpResult})}
+        {call get_emp_by_job_id(
+        #{inParam1, jdbcType = VARCHAR , mode = IN},
+        #{employees, jdbcType = CURSOR, javaType=java.sql.ResultSet , mode = OUT, resultMap=EmpResult})}
     </select>
 
 </mapper>
