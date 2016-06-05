@@ -24,6 +24,20 @@ http://forums.enterprisedb.com/posts/list/1374.page
         END;
         
         =======================
+        
+        create or replace 
+        PROCEDURE get_emp_by_job_id(
+        	   p_job_id IN HR.employees.job_id%TYPE,
+        	   c_dbuser OUT SYS_REFCURSOR)
+        IS
+        BEGIN
+        
+          OPEN c_dbuser FOR
+          SELECT * FROM HR.employees WHERE job_id = p_job_id;
+         
+        END;
+        
+        =======================
 
         SET SERVEROUTPUT ON;
 
