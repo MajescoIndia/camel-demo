@@ -35,6 +35,17 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-mybatis</artifactId>
+			<version>2.17.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>oracle-driver</artifactId>
+            <version>1.0.0</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
