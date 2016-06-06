@@ -14,33 +14,9 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan
 public class CamelDemoApplication {
-	@Autowired CamelContext camelContext;
 
 	public static void main(String[] args) {
 		SpringApplication.run(CamelDemoApplication.class, args);
 	}
 
-	@Bean
-	ErrorPropagationProxy registerErrorPropagationProxy() throws Exception {
-		ErrorPropagationProxy proxy = new ProxyBuilder(camelContext)
-				.endpoint("direct:errorPropagationDirectEndpoint")
-				.build(ErrorPropagationProxy.class);
-		return proxy;
-	}
-
-	@Bean
-	MybatisDemoProxy registerMybatisDemoProxy() throws Exception {
-		MybatisDemoProxy proxy = new ProxyBuilder(camelContext)
-				.endpoint("direct:mybatisDemoSelectEmployee")
-				.build(MybatisDemoProxy.class);
-		return proxy;
-	}
-
-    @Bean
-    MybatisDemoProcProxy registerMybatisDemoProcProxy() throws Exception {
-        MybatisDemoProcProxy proxy = new ProxyBuilder(camelContext)
-                .endpoint("direct:mybatisDemoMaxSalProc")
-                .build(MybatisDemoProcProxy.class);
-        return proxy;
-    }
 }
