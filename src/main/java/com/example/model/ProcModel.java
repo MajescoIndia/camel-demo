@@ -12,9 +12,10 @@ public class ProcModel {
     private Integer outParam1;
     private String outParam2;
     private String inOutParam1;
-    private List<Employee> employees;
+    private List<ClassCode> classCodes;
     private Params inParams;
     private Params outParams;
+
 
     public Params getInParams() {
         return inParams;
@@ -32,12 +33,12 @@ public class ProcModel {
         this.outParams = outParams;
     }
 
-    public List<Employee> getEmployees() {
-        return employees;
+    public List<ClassCode> getClassCodes() {
+        return classCodes;
     }
 
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
+    public void setClassCodes(List<ClassCode> classCodes) {
+        this.classCodes = classCodes;
     }
 
     public String getInParam1() {

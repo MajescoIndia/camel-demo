@@ -1,6 +1,5 @@
 package com.example.routes;
 
-import com.example.model.Employee;
 import com.example.model.ProcModel;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
@@ -18,16 +17,9 @@ public class MybatisDemoRoute extends RouteBuilder {
     @Override
     public void configure() throws Exception {
 
-        from("direct:mybatisDemoSelectEmployee").routeId("mybatisDemoSelectEmployee")
-                .log("Fetching Data from DB.")
-                .convertBodyTo(String.class)
-                .to("mybatis:selectEmployeeByJobId?statementType=SelectList")
-                .convertBodyTo(List.class);
-
-        from("direct:mybatisDemoMaxSalProc")
+        from("direct:mybatisDemoClassCodeProc")
                 .convertBodyTo(ProcModel.class)
-                .to("mybatis:selectMaxSalByJobIdProc?statementType=SelectOne")
-                //.to("mybatis:selectEmpListByJobIdProc?statementType=SelectOne")
+                .to("mybatis:selectClassCodeByStateCode?statementType=SelectOne")
                 .process(new Processor() {
                     @Override
                     public void process(Exchange exchange) throws Exception {

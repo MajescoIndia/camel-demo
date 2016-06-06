@@ -2,7 +2,6 @@ package com.example;
 
 import com.example.proxy.ErrorPropagationProxy;
 import com.example.proxy.MybatisDemoProcProxy;
-import com.example.proxy.MybatisDemoProxy;
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.ProxyBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,18 +27,10 @@ public class CamelDemoApplication {
 		return proxy;
 	}
 
-	@Bean
-	MybatisDemoProxy registerMybatisDemoProxy() throws Exception {
-		MybatisDemoProxy proxy = new ProxyBuilder(camelContext)
-				.endpoint("direct:mybatisDemoSelectEmployee")
-				.build(MybatisDemoProxy.class);
-		return proxy;
-	}
-
     @Bean
     MybatisDemoProcProxy registerMybatisDemoProcProxy() throws Exception {
         MybatisDemoProcProxy proxy = new ProxyBuilder(camelContext)
-                .endpoint("direct:mybatisDemoMaxSalProc")
+                .endpoint("direct:mybatisDemoClassCodeProc")
                 .build(MybatisDemoProcProxy.class);
         return proxy;
     }

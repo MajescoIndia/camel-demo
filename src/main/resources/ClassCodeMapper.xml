@@ -1,0 +1,21 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ClassCode">
+
+    <resultMap id="classCodeResult" type="com.example.model.ClassCode">
+        <result property="stateCode" column="CC_STATE_CODE"/>
+        <result property="classCode" column="CC_CLASS_CODE"/>
+        <result property="classDesc" column="CC_CLASS_DESC"/>
+        <result property="sex" column="CC_SEX"/>
+    </resultMap>
+
+    <select id="selectClassCodeByStateCode" statementType="CALLABLE">
+        {call get_class_code_by_state_code(
+        #{inParam1, jdbcType = VARCHAR , mode = IN},
+        #{classCodes, jdbcType = CURSOR, javaType=java.sql.ResultSet , mode = OUT, resultMap=classCodeResult}
+        )}
+    </select>
+
+</mapper>
