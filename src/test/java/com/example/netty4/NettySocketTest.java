@@ -15,9 +15,9 @@ public class NettySocketTest {
     public void testNettyEndpoint() {
         try(final Socket socket = new Socket("localhost", 7000)) {
 
-            sendRequest(socket, "aaaaaabdgfssssssssssg");
+            sendRequest(socket, "aaaaaabdgfssssssssssg\nfdgfgsdeetret\n");
             String response = receiveResponse(socket);
-            System.out.printf("");
+            System.out.println(response);
 
             if (socket!=null){
                 socket.close();

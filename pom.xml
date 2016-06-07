@@ -21,6 +21,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.7</java.version>
+		<camel.version>2.17.1</camel.version>
 	</properties>
 
 	<dependencies>
@@ -34,27 +35,42 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!--CAMEL-->
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-mybatis</artifactId>
-			<version>2.17.1</version>
+			<version>${camel.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-netty4</artifactId>
-			<version>2.17.1</version>
+			<version>${camel.version}</version>
 		</dependency>
 
+		<!--COMMONS-->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
+
+		<!--DB DRIVERS-->
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>oracle-driver</artifactId>
             <version>1.0.0</version>
 		</dependency>
 
+		<!--TESTS-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-test-spring</artifactId>
+			<version>${camel.version}</version>
 		</dependency>
 	</dependencies>
 
